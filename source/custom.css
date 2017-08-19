@@ -1,0 +1,12 @@
+body {
+    background-color: #CCC;
+}
+.container#site-wrapper {
+    background-color: #FFF;
+    border-left: 1px solid #B5B3B3;
+    border-right: 1px solid #B5B3B3;
+}
+footer {
+    background-color: #3A3939;
+    color: #CCC;
+}
