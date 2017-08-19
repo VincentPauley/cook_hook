@@ -21,6 +21,13 @@
   },
   "homepage": "https://github.com/VincentPauley/cook_hook#readme",
   "dependencies": {
-    "express": "^4.15.4"
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.4",
+    "gulp-concat": "^2.6.1"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
   }
 }
