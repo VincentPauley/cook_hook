@@ -1,0 +1,26 @@
+{
+  "name": "cook_hook",
+  "version": "1.0.0",
+  "description": "simple app for sharing and tweaking recipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentPauley/cook_hook.git"
+  },
+  "keywords": [
+    "cooking",
+    "recipes"
+  ],
+  "author": "Vincent R Pauley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincentPauley/cook_hook/issues"
+  },
+  "homepage": "https://github.com/VincentPauley/cook_hook#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
