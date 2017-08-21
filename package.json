@@ -25,7 +25,8 @@
     "express": "^4.15.4",
     "gulp-concat": "^2.6.1",
     "handlebars": "^4.0.10",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "mongoose": "^4.11.7"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
