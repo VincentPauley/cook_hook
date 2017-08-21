@@ -27,7 +27,7 @@ const Recipe = mongoose.model( 'Recipe', recipeSchema );
 
 // attempt at one read
 Recipe.find({}, function( err, recipe ) {
-    if() throw err;
+    if( err ) throw err;
 
     console.log( recipe );
 });
