@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/VincentPauley/cook_hook#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "bootstrap": "^3.3.7",
     "express": "^4.15.4",
     "gulp-concat": "^2.6.1",

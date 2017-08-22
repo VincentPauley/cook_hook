@@ -1,10 +1,13 @@
 const express = require( 'express' ),
       app = express(),
       mongoose = require( 'mongoose' ),
+      mongoose.Promise = require( 'bluebird' ),
       Schema = mongoose.Schema;
 
 // provide the public Dir
 app.use( express.static( 'public' ) );
+
+
 
 var promise = mongoose.connect( 'mongodb://localhost/myapp', {
     useMongoClient: true
