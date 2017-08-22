@@ -6,13 +6,12 @@ const express = require( 'express' ),
 // provide the public Dir
 app.use( express.static( 'public' ) );
 
-mongoose.connect( 'mongodb://127.0.0.1/recipes' );
+var promise = mongoose.connect( 'mongodb://localhost/myapp', {
+    useMongoClient: true;
+});
 
-var db = mongoose.connection;
-
-db.on('error', console.error.bind( console, 'connection error:' ))
-db.once('open', function() {
-    console.log( 'we are connected!' );
+promise.then(function( db ) {
+    console.log( 'Connected the correct way' );
 });
 
 /*
