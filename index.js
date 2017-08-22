@@ -9,7 +9,7 @@ mongoose.Promise = require( 'bluebird' );
 // provide the public Dir
 app.use( express.static( 'public' ) );
 
-var promise = mongoose.connect( 'mongodb://localhost/recipes', {
+var promise = mongoose.connect( 'mongodb://localhost/cookhook', {
     useMongoClient: true
 });
 
@@ -19,41 +19,23 @@ promise.then(function( db ) {
     var recipeSchema = new Schema({
         name: String,
         cook_time: Number,
-        instructions: String
+        instructions: String,
+        ingredients: [String]
     });
-    /*
-    var userSchema = new Schema({
-        name: String,
-        username: { type: String, required: true, unique: true},
-        password: { type: String, required: true },
-        admin: Boolean,
-        location: String,
-        meta: {
-          age: Number,
-          website: String
-        },
-        created_at: Date,
-        updated_at: Date
-    });*/
 
     var Recipe = mongoose.model( 'Recipe', recipeSchema );
 
     var newRecipe = Recipe({
         name: "Grilled Cheese",
         cooktime: 4000,
-        instructions: "saute the buns and then "
+        instructions: "saute the buns and then cheese it up",
+        ingredients: ["bread", "butter", "pepper", "cheese"]
     });
 
     newRecipe.save(function( err ) {
         if(err) throw err;
 
         console.log( 'Recipe Added' );
-    });
-
-    newUser.save(function(err) {
-        if(err) throw err;
-
-        console.log( 'User Created' );
     });
 });
 
