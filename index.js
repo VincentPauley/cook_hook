@@ -7,7 +7,7 @@ const express = require( 'express' ),
 app.use( express.static( 'public' ) );
 
 var promise = mongoose.connect( 'mongodb://localhost/myapp', {
-    useMongoClient: true;
+    useMongoClient: true
 });
 
 promise.then(function( db ) {
