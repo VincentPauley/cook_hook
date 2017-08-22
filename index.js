@@ -1,8 +1,9 @@
 const express = require( 'express' ),
       app = express(),
       mongoose = require( 'mongoose' ),
-      mongoose.Promise = require( 'bluebird' ),
       Schema = mongoose.Schema;
+
+mongoose.Promise = require( 'bluebird' );
 
 // provide the public Dir
 app.use( express.static( 'public' ) );
