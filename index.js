@@ -22,21 +22,22 @@ promise.then(function( db ) {
         instructions: String,
         tags: [String],
         difficulty: Number,
-        ingredients: [{ name: String, amount: String }]
+        required_ingredients: [{ name: String, amount: String, _id: false }],
+        fancy_ingredients:  [{ name: String, amount: String, _id: false }]
     });
 
     var Recipe = mongoose.model( 'Recipe', recipeSchema );
 
     var newRecipe = Recipe({
-        name: "seared steak",
+        name: "Macaroni and Cheese",
         cook_time: 7000,
         difficulty: 5,
-        tags: [ "steak", "red meat", "garlic", "filet" ],
-        instructions: "sear the steaks on both sides in butter and minced garlic, finish in the oven and garnish with parseley",
+        tags: [ "cheese", "easy", "mac", "macaroni", "wisconsin" ],
+        instructions: "boil the noodles and drain, stir in butter, milk, and cheese.  Top with a little extra cheese after plating. If you went fancy add you saute'd breadcrumbs at this point.",
         ingredients: [
             {
-                name: "steak",
-                amount: "2 fillets"
+                name: "elbow noodles",
+                amount: "3 cups"
             },
             {
                 name: "butter",
@@ -44,11 +45,21 @@ promise.then(function( db ) {
             },
             {
                 name: "garlic",
-                amount: "3 cloves"
+                amount: "1 clove"
             },
             {
-                name: "parsley",
-                amount: "small bunch"
+                name: "milk",
+                amount: "splash"
+            }
+        ],
+        fancy_ingredients : [
+            {
+                name: "bread crumbs",
+                amount: "1/4 cup"
+            },
+            {
+                name: "parmasean cheese",
+                amount: "1/4 cup"
             }
         ]
     });
