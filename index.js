@@ -9,12 +9,19 @@ mongoose.Promise = require( 'bluebird' );
 // provide the public Dir
 app.use( express.static( 'public' ) );
 
-var promise = mongoose.connect( 'mongodb://localhost/myapp', {
+var promise = mongoose.connect( 'mongodb://localhost/recipes', {
     useMongoClient: true
 });
 
 promise.then(function( db ) {
     // initial model
+
+    var recipeSchema = new Schema({
+        name: String,
+        cook_time: Number,
+        instructions: String
+    });
+    /*
     var userSchema = new Schema({
         name: String,
         username: { type: String, required: true, unique: true},
@@ -27,15 +34,20 @@ promise.then(function( db ) {
         },
         created_at: Date,
         updated_at: Date
+    });*/
+
+    var Recipe = mongoose.model( 'Recipe', recipeSchema );
+
+    var newRecipe = Recipe({
+        name: "Grilled Cheese",
+        cooktime: 4000,
+        instructions: "saute the buns and then "
     });
 
-    var User = mongoose.model( 'User', userSchema );
+    newRecipe.save(function( err ) {
+        if(err) throw err;
 
-    var newUser = User({
-        name: 'Vincent Pauley',
-        username: 'majorNoodle',
-        password: 'pass',
-        admin: true
+        console.log( 'Recipe Added' );
     });
 
     newUser.save(function(err) {
@@ -43,13 +55,6 @@ promise.then(function( db ) {
 
         console.log( 'User Created' );
     });
-
-    /* attempt at one read
-    Recipe.find({}, function( err, recipe ) {
-        if( err ) throw err;
-
-        console.log( recipe );
-    });*/
 });
 
 
