@@ -17,9 +17,9 @@ promise.then(function( db ) {
     // initial model
     var recipeSchema = new Schema({
         recipe_name : String,
-        tags : [{ type: String }],
+        tags : [String],
         difficulty : Number,
-        ingredients : [{ type: String }],
+        ingredients : [{ name: String, qnty: String }],
         cook_time : Number,
         instructions : String
     });
