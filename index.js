@@ -2,7 +2,7 @@ const express = require( 'express' ),
       app = express(),
       mongoose = require( 'mongoose' );
       //,Schema = mongoose.Schema;
-var Recipe = require( './models/recipe.js' );
+var Recipe = require( './models/Recipe.model' );
 
 // set mongoose to use bluebird lib for promises rather than default
 mongoose.Promise = require( 'bluebird' );

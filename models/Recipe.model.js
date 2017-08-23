@@ -12,6 +12,4 @@ const RecipeSchema = new mongoose.Schema({
     fancy_ingredients:  [{ name: String, amount: String, _id: false }]
 });
 
-const Recipe = mongoose.model( "Recipe", RecipeSchema );
-
-module.exports = { Recipe: Recipe };
+module.exports = mongoose.model( "Recipe", RecipeSchema );
