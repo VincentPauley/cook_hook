@@ -1,7 +1,8 @@
 const express = require( 'express' ),
       app = express(),
-      mongoose = require( 'mongoose' ),
-      Schema = mongoose.Schema;
+      mongoose = require( 'mongoose' );
+      //,Schema = mongoose.Schema;
+var Recipe = require( './models/recipe.js' );
 
 // set mongoose to use bluebird lib for promises rather than default
 mongoose.Promise = require( 'bluebird' );
@@ -16,6 +17,7 @@ var promise = mongoose.connect( 'mongodb://localhost/cookhook', {
 promise.then(function( db ) {
     // initial model
 
+    /*
     var recipeSchema = new Schema({
         name: String,
         cook_time: Number,
@@ -27,39 +29,41 @@ promise.then(function( db ) {
     });
 
     var Recipe = mongoose.model( 'Recipe', recipeSchema );
+    */
+
 
     var newRecipe = Recipe({
-        name: "Macaroni and Cheese",
-        cook_time: 7000,
-        difficulty: 5,
-        tags: [ "cheese", "easy", "mac", "macaroni", "wisconsin" ],
-        instructions: "boil the noodles and drain, stir in butter, milk, and cheese.  Top with a little extra cheese after plating. If you went fancy add you saute'd breadcrumbs at this point.",
-        ingredients: [
+        name: "Chicken and Bacon Sandwhich",
+        cook_time: 3000000,
+        difficulty: 4,
+        tags: [ "avacado", "white meat", "chicken", "sandwhich", "lunch" ],
+        instructions: "Saute' chicken and cook bacon, toast the buns and add all sandwhich elements together.",
+        required_ingredients: [
             {
-                name: "elbow noodles",
-                amount: "3 cups"
+                name: "White meat chicken",
+                amount: "2 breasts or 4 tenderloins"
             },
             {
-                name: "butter",
-                amount: "2 tbsp"
+                name: "Pork Bacon",
+                amount: "4 strips"
             },
             {
-                name: "garlic",
-                amount: "1 clove"
+                name: "Lettuce",
+                amount: "1 Cup"
             },
             {
-                name: "milk",
-                amount: "splash"
+                name: "Tomatoe",
+                amount: "1"
+            },
+            {
+                name: "Buns",
+                amount: "same as sandwhiches"
             }
         ],
         fancy_ingredients : [
             {
-                name: "bread crumbs",
-                amount: "1/4 cup"
-            },
-            {
-                name: "parmasean cheese",
-                amount: "1/4 cup"
+                name: "Avacado",
+                amount: "1"
             }
         ]
     });
